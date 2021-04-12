@@ -1,5 +1,5 @@
 const exp=require("express")
-const Hotel= require("../models/Hotels.js")
+const Hotel= require("../models/hotels.js")
 const hotelsapiObj=exp()
 const bcrypt=require("bcrypt")
 require("dotenv").config()

@@ -1,6 +1,6 @@
 const exp=require("express")
-const User = require("../models/Users.js")
-const Hotel = require("../models/Hotels.js")
+const User = require("../models/users.js")
+const Hotel = require("../models/hotels.js")
 const verifyToken=require('./middlewares/verifytokens')
 //const Product = require("../models/Products.js")
 require("dotenv").config()
@@ -9,7 +9,7 @@ const bcrypt=require("bcrypt")
 const errHandler=require("express-async-handler")
 const jsonwebtoken=require("jsonwebtoken")
 
-const userModel=require("../models/Users.js")
+const userModel=require("../models/users.js")
 userapiObj.use(exp.json())
 module.exports=userapiObj
 Date.prototype.addDay = function (days) {

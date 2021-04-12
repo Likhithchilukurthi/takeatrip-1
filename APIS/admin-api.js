@@ -1,5 +1,5 @@
 const exp=require("express")
-const Admin = require("../models/admin.js")
+const Admin = require("../models/Admin.js")
 //const Product = require("../models/Products.js")
 require("dotenv").config()
 const adminapiObj=exp()
@@ -7,7 +7,7 @@ const bcrypt=require("bcrypt")
 const errHandler=require("express-async-handler")
 const jsonwebtoken=require("jsonwebtoken")
 
-const userModel=require("../models/users.js")
+const userModel=require("../models/Users.js")
 adminapiObj.use(exp.json())
 module.exports=adminapiObj
 adminapiObj.post("/checkpasswordasync",errHandler(async (req,res)=>{

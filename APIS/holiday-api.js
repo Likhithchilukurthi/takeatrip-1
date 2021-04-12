@@ -1,5 +1,5 @@
 const exp=require("express")
-const Holiday= require("../models/holidays.js")
+const Holiday= require("../models/Holidays.js")
 const holidaysapiObj=exp()
 const bcrypt=require("bcrypt")
 const verifyToken=require('./middlewares/verifytokens')

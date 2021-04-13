@@ -13,7 +13,7 @@ import {formatDate} from '@angular/common';
 export class HotelsearchComponent implements OnInit {
 
   constructor(private router:Router,private activatedRoute: ActivatedRoute,private hotobj:HotelsService,private toster:ToastrService,private localstorage:LocalstorageService) {}
-  cities=["Hyderabad","Chennai","Banglore","Vijayawada","Kochi","Goa","Mumbai","kolkata","Delhi"]
+  cities=["Hyderabad","Chennai","Banglore","Vijayawada","Kochi","Goa","Mumbai","Kolkata","Delhi"]
   selectedcity=""
   checkindate:any
   checkoutdate:any

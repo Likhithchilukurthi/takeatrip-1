@@ -132,7 +132,7 @@ if(hotelsincity!=null){
          }
          else{availabilitycount=availabilitycount+1}
      }
-     if(availabilitycount==datesarray.length){availablehotels.push(hotel)}
+     if(availabilitycount==datesarray.length && (parseInt(dobj.rooms))<=hotel["hotel_rooms_count"]){availablehotels.push(hotel)}
     
 
     }

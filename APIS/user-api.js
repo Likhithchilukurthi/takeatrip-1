@@ -111,14 +111,18 @@ userapiObj.post("/cancelholiday",verifyToken,errHandler(async (req,res)=>{
      req.body["totalpackagecost"]=parseInt(req.body["totalpackagecost"])
      req.body["totalpeople"]=parseInt(req.body["totalpeople"])
      cancelpack=req.body
-     var index = bookedpackages.indexOf(cancelpack);
-     console.log(req.body)
-     console.log(bookedpackages[0])
-     console.log(index)
+     let index=-1
+     for( package of bookedpackages) {
+        if(package.tripstartdate == cancelpack.tripstartdate && package.tripenddate == cancelpack.tripenddate && package["packageobj"]["package_name"]==cancelpack["packageobj"]["package_name"] && package.totalpeople==cancelpack.totalpeople && package.totalpackagecost==cancelpack.totalpackagecost ){
+            index = bookedpackages.indexOf(package);
+            console.log("index is",index)
+        }
+    }
 if (index !== -1) {
     bookedpackages.splice(index, 1);
 }
     await User.updateOne({username:req.body.username},{package:bookedpackages})
+    
     res.send({message:'package canceled succesfully',updatedpackage:bookedpackages})
 }))
 

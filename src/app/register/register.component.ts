@@ -1,3 +1,4 @@
+import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { UserService } from './../user.service';
 import { Component, OnInit } from '@angular/core';
@@ -9,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
   isvalid:any
-  constructor(private userobj:UserService,private router:Router) { }
+  constructor(private userobj:UserService,private router:Router,private toastr:ToastrService) { }
 
   ngOnInit(): void {
   }
@@ -19,19 +20,19 @@ export class RegisterComponent implements OnInit {
       this.isvalid=0
     }
     else if(data.value.password!=data.value.password1){
-      alert("Passwords did not match");
+    this.toastr.error("Passwords did not match");
     }
     else{
      this.userobj.createuser(data.value).subscribe(res=>{
        if(res["message"]=="User already exists"){
-alert("User name already exists please try another username");
+this.toastr.warning("User name already exists please try another username");
 this.router.navigateByUrl("/register")
        }
        if(res["message"]=="User sucessfully created"){
-        alert("User sucessfully created");
+        this.toastr.success("User sucessfully created");
         this.router.navigateByUrl("/login")
                }
-        else{alert("Something went wrong");}
+        else{this.toastr.error("Something went wrong");}
        
      })
     }
